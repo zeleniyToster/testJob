@@ -1,0 +1,12 @@
+X:\temp\testObject\testJob\testProject\bin\Debug\testProject.exe.config
+X:\temp\testObject\testJob\testProject\bin\Debug\testProject.exe
+X:\temp\testObject\testJob\testProject\bin\Debug\testProject.pdb
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.csprojAssemblyReference.cache
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.ActionsForm.resources
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.MainForm.resources
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.Properties.Resources.resources
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.csproj.GenerateResource.cache
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.csproj.CoreCompileInputs.cache
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.exe
+X:\temp\testObject\testJob\testProject\obj\Debug\testProject.pdb
+X:\temp\testObject\testJob\testProject\bin\Debug\testDB.mdb
