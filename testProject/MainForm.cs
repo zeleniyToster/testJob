@@ -30,19 +30,24 @@ namespace testProject
         {
             ActionsForm AF = new ActionsForm();
             AF.Show();
-            
+            int num=0;
             if (tabControl1.SelectedTab == tabPage1)
             {
                 AF.comboBox1.SelectedIndex = 0;
                 AF.comboBox2.SelectedIndex = 0;
                 AF.dataGridView1.DataSource = денежныеBindingSource;
+                AF.tableName = tabPage1.Text;
+                num = 1;
             }
             if (tabControl1.SelectedTab == tabPage2)
             {
                 AF.comboBox1.SelectedIndex = 1;
                 AF.comboBox2.SelectedIndex = 1;
                 AF.dataGridView1.DataSource = неденежныеBindingSource;
+                AF.tableName = tabPage2.Text;
+                num = 2;
             }
+            AF.initLines(num);
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,12 +64,14 @@ namespace testProject
                 AF.comboBox1.SelectedIndex = 0;
                 AF.comboBox2.SelectedIndex = 0;
                 AF.dataGridView1.DataSource = денежныеBindingSource;
+                AF.tableName = tabPage1.Text;
             }
             if (tabControl1.SelectedTab == tabPage2)
             {
                 AF.comboBox1.SelectedIndex = 1;
                 AF.comboBox2.SelectedIndex = 1;
                 AF.dataGridView1.DataSource = неденежныеBindingSource;
+                AF.tableName = tabPage2.Text;
             }
         }
     }

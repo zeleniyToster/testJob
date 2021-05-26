@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
             this.денежныеBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.денежныеTableAdapter = new testProject.testDBDataSetTableAdapters.ДенежныеTableAdapter();
             this.testDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -126,6 +126,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Добавить";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(713, 341);
+            this.maskedTextBox1.Mask = "00.00.0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(121, 20);
+            this.maskedTextBox1.TabIndex = 14;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox1.Visible = false;
             // 
             // button1
             // 
@@ -461,15 +471,6 @@
             // 
             this.testDBDataSetBindingSource.DataSource = this.testDBDataSet;
             this.testDBDataSetBindingSource.Position = 0;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(713, 341);
-            this.maskedTextBox1.Mask = "00.00.0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(121, 20);
-            this.maskedTextBox1.TabIndex = 14;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // ActionsForm
             // 

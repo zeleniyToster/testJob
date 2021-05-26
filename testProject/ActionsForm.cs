@@ -17,7 +17,7 @@ namespace testProject
             InitializeComponent();
         }
 
-        private string tableName;
+        public string tableName;
         //cash assets
         private string assetNameM, bankName, dimM;
         private int accountNumber, summ;
@@ -26,11 +26,42 @@ namespace testProject
         private int initBV, resBV, predictivePrice, invNumber;
         private DateTime productionDate;
 
-        public BindingSource bs = new BindingSource();
 
-        private void initTable()
+
+        public void initLines(int Num)
         {
-            //tableName = comboBox1.SelectedItem.ToString();
+            if (Num == 1)
+            {
+                textBox1.Visible = true;
+                textBox2.Visible = true;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                textBox5.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                label6.Visible = true;
+                label7.Visible = true;
+            }
+            if (Num == 2)
+            {
+                textBox6.Visible = true;
+                textBox7.Visible = true;
+                textBox8.Visible = true;
+                textBox9.Visible = true;
+                textBox10.Visible = true;
+                textBox11.Visible = true;
+                textBox14.Visible = true;
+                maskedTextBox1.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                label10.Visible = true;
+                label11.Visible = true;
+                label12.Visible = true;
+                label13.Visible = true;
+                label15.Visible = true;
+                label16.Visible = true;
+            }
         }
 
         private void ActionsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,19 +84,8 @@ namespace testProject
             MainForm mf = new MainForm();
             // TODO: данная строка кода позволяет загрузить данные в таблицу "testDBDataSet.Денежные". При необходимости она может быть перемещена или удалена.
             this.денежныеTableAdapter.Fill(this.testDBDataSet.Денежные);
-            
-            //switch (comboBox1.SelectedIndex)
-            //{
-            //    case 0:
-            //        dataGridView1.DataSource = mf.денежныеBindingSource;
-            //        break;
-            //    case 1:
-            //        dataGridView1.DataSource = mf.неденежныеBindingSource;
-            //        break;
-            //    default:
-            //        break;
-            //}
-            initTable();
+
+            textBox1.Text = tableName;
         }
 
         private void button1_Click(object sender, EventArgs e)
