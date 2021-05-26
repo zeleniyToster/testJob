@@ -23,13 +23,49 @@ namespace testProject
             this.неденежныеTableAdapter.Fill(this.testDBDataSet.Неденежные);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "testDBDataSet.Денежные". При необходимости она может быть перемещена или удалена.
             this.денежныеTableAdapter.Fill(this.testDBDataSet.Денежные);
-
+            
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActionsForm AF = new ActionsForm();
             AF.Show();
+            
+            if (tabControl1.SelectedTab == tabPage1)
+            {
+                AF.comboBox1.SelectedIndex = 0;
+                AF.comboBox2.SelectedIndex = 0;
+                AF.dataGridView1.DataSource = денежныеBindingSource;
+            }
+            if (tabControl1.SelectedTab == tabPage2)
+            {
+                AF.comboBox1.SelectedIndex = 1;
+                AF.comboBox2.SelectedIndex = 1;
+                AF.dataGridView1.DataSource = неденежныеBindingSource;
+            }
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActionsForm AF = new ActionsForm();
+            AF.Show();
+            if (tabControl1.SelectedTab == tabPage1)
+            {
+                AF.comboBox1.SelectedIndex = 0;
+                AF.comboBox2.SelectedIndex = 0;
+                AF.dataGridView1.DataSource = денежныеBindingSource;
+            }
+            if (tabControl1.SelectedTab == tabPage2)
+            {
+                AF.comboBox1.SelectedIndex = 1;
+                AF.comboBox2.SelectedIndex = 1;
+                AF.dataGridView1.DataSource = неденежныеBindingSource;
+            }
         }
     }
 }

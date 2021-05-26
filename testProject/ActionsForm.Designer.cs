@@ -36,7 +36,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.денежныеBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.денежныеTableAdapter = new testProject.testDBDataSetTableAdapters.ДенежныеTableAdapter();
             this.testDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -90,12 +90,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.maskedTextBox1);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.textBox14);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.textBox10);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.textBox13);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.textBox9);
             this.tabPage1.Controls.Add(this.label15);
@@ -136,6 +136,7 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox14
             // 
@@ -175,14 +176,6 @@
             this.label12.TabIndex = 3;
             this.label12.Text = "Измерение";
             this.label12.Visible = false;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(713, 340);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(121, 20);
-            this.textBox13.TabIndex = 9;
-            this.textBox13.Visible = false;
             // 
             // textBox5
             // 
@@ -398,6 +391,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Денежные",
+            "Неденежные"});
             this.comboBox1.Location = new System.Drawing.Point(94, 6);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -438,6 +434,9 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Денежные",
+            "Неденежные"});
             this.comboBox2.Location = new System.Drawing.Point(94, 6);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
@@ -462,6 +461,15 @@
             // 
             this.testDBDataSetBindingSource.DataSource = this.testDBDataSet;
             this.testDBDataSetBindingSource.Position = 0;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(713, 341);
+            this.maskedTextBox1.Mask = "00.00.0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(121, 20);
+            this.maskedTextBox1.TabIndex = 14;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // ActionsForm
             // 
@@ -490,17 +498,14 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label15;
@@ -522,10 +527,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private testDBDataSet testDBDataSet;
         private System.Windows.Forms.BindingSource денежныеBindingSource;
         private testDBDataSetTableAdapters.ДенежныеTableAdapter денежныеTableAdapter;
         private System.Windows.Forms.BindingSource testDBDataSetBindingSource;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
