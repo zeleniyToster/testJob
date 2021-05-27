@@ -19,9 +19,9 @@ namespace testProject
         }
 
         public string tableName;
-        public string conStr;
+        public static string conStrx = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=testDB.mdb";
         private OleDbConnection myCon2;
-
+        public List<string> updData = new List<string>();
         public void initLines(int Num)
         {
             if (Num == 1)
@@ -57,14 +57,36 @@ namespace testProject
                 label16.Visible = true;
             }
         }
-
+        public void initUpdLines(int Num)
+        {
+            if (Num == 1)
+            {
+                textBox1.Text = updData[1];
+                textBox2.Text = updData[2];
+                textBox3.Text = updData[3];
+                textBox4.Text = updData[4];
+                textBox5.Text = updData[5];
+            }
+            if (Num == 2)
+            {
+                textBox6.Text = updData[1];
+                textBox7.Text = updData[2];
+                textBox8.Text = updData[3];
+                textBox9.Text = updData[4];
+                textBox10.Text = updData[5];
+                textBox11.Text = updData[6];
+                maskedTextBox1.Text = updData[7];
+                textBox14.Text = updData[8];
+            }
+        }
         private void insQ(string col,string Value)
         {
-            string query = "INSERT INTO " + tableName + col + " VALUES (" + Value+")";
+            tableName += col;
+            string query = "INSERT INTO " + tableName + " VALUES (" + Value+")";//+" "+ col
             OleDbCommand command = new OleDbCommand(query,myCon2);
             command.ExecuteNonQuery();
         }
-        public void updQ(string id,string Value)
+        public void updQ(int id,string Value)
         {
             string query = "UPDATE "+tableName+" SET "+Value + " WHERE id="+id;
             OleDbCommand command = new OleDbCommand(query, myCon2);
@@ -74,8 +96,6 @@ namespace testProject
         {
 
         }
-
-
         private void ActionsForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "testDBDataSet.Денежные". При необходимости она может быть перемещена или удалена.
@@ -86,18 +106,19 @@ namespace testProject
         private void button1_Click(object sender, EventArgs e)
         {
             string valQuery="", col="";
-            if (tableName == "Денежные активы")
+            if (tableName == "Денежные")
             {
-                col = "(Наименование актива, Наименование банка, Номер счета, Общая сумма, Измерение)";
-                valQuery = textBox1.Text + ", "+ textBox2.Text + ", " + textBox3.Text + ", " + textBox4.Text + ", " + textBox5.Text;
+                col = " ([Наименование актива], [Наименование банка], [Номер счета], [Общая сумма], [Измерение])";
+                valQuery ="'"+ textBox1.Text + "', '"+ textBox2.Text + "', " + int.Parse(textBox3.Text) + ", " + int.Parse(textBox4.Text) + ", '" + textBox5.Text+"'";
             }    
-            if (tableName == "Неденежные активы")
+            if (tableName == "Неденежные")
             {
-                col = "(Наименование, Начальная балансовая стоимость, Остаточная балансовая стоимость, Оценочная стоимость, Измерение, Инвентарный номер, Дата производства, Краткое Описание)";
-                valQuery = textBox6.Text + ", " + textBox7.Text + ", " + textBox8.Text + ", " + textBox9.Text + ", " + textBox10.Text + ", " + textBox11.Text + ", " + maskedTextBox1.Text + ", " + textBox14.Text;
+                col = "([Наименование], [Начальная балансовая стоимость], [Остаточная балансовая стоимость], [Оценочная стоимость], [Измерение], [Инвентарный номер], [Дата производства], [Краткое Описание])";
+                valQuery = "'"+textBox6.Text + "', " + textBox7.Text + ", " + textBox8.Text + ", " + textBox9.Text + ", '" + textBox10.Text + "', " + textBox11.Text + ", '" + maskedTextBox1.Text + "', '" + textBox14.Text+"'";
             }
+            
 
-            myCon2 = new OleDbConnection(conStr);
+            myCon2 = new OleDbConnection(conStrx);
             myCon2.Open();
             insQ(col,valQuery);
             myCon2.Close();
@@ -106,18 +127,20 @@ namespace testProject
         private void button2_Click(object sender, EventArgs e)
         {
             string valQuery = "";
-            string n = dataGridView1.CurrentRow.ToString();
-            if (tableName == "Денежные активы")
+            //int n = dataGridView1.CurrentRow.Index + 1;
+            //List<string> updData = new List<string>();
+            //initUpd()
+            if (tableName == "Денежные")
             {
-                valQuery = "Наименование актива=" + textBox1.Text + ", Наименование банка=" + textBox2.Text + ", Номер счета=" + textBox3.Text + ", Общая сумма=" + textBox4.Text + ", Измерение=" + textBox5.Text;
+                valQuery = "[Наименование актива]='" + textBox1.Text + "', [Наименование банка]='" + textBox2.Text + "', [Номер счета]=" + textBox3.Text + ", [Общая сумма]=" + textBox4.Text + ", [Измерение]='" + textBox5.Text+"'";
             }
-            if (tableName == "Неденежные активы")
+            if (tableName == "Неденежные")
             {
-                valQuery = "Наименование="+textBox6.Text + ", Начальная балансовая стоимость=" + textBox7.Text + ", Остаточная балансовая стоимость=" + textBox8.Text + ", Оценочная стоимость=" + textBox9.Text + ", Измерение=" + textBox10.Text + ", Инвентарный номер=" + textBox11.Text + ", Дата производства=" + maskedTextBox1.Text + ", Краткое Описание=" + textBox14.Text;
+                valQuery = "[Наименование]='"+textBox6.Text + "', [Начальная балансовая стоимость]=" + textBox7.Text + ", [Остаточная балансовая стоимость]=" + textBox8.Text + ", [Оценочная стоимость]=" + textBox9.Text + ", [Измерение]='" + textBox10.Text + "', [Инвентарный номер]=" + textBox11.Text + ", [Дата производства]='" + maskedTextBox1.Text + "', [Краткое Описание]='" + textBox14.Text+"'";
             }
-            myCon2 = new OleDbConnection(conStr);
+            myCon2 = new OleDbConnection(conStrx);
             myCon2.Open();
-            updQ(n, valQuery);
+            updQ(int.Parse(updData[0]), valQuery);
             myCon2.Close();
         }
     }

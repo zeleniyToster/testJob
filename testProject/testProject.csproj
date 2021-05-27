@@ -119,6 +119,9 @@
       <LastGenOutput>testDBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="testDBDataSet.xss">
+      <DependentUpon>testDBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
