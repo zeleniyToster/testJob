@@ -68,6 +68,7 @@
             this.денежныеBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.денежныеTableAdapter = new testProject.testDBDataSetTableAdapters.ДенежныеTableAdapter();
             this.testDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.maskedTextBox1);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.textBox14);
@@ -124,7 +126,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1375, 587);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Добавить";
+            this.tabPage1.Text = "Действие";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // maskedTextBox1
@@ -142,7 +144,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(1035, 38);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(278, 508);
+            this.button1.Size = new System.Drawing.Size(278, 71);
             this.button1.TabIndex = 13;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
@@ -408,7 +410,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // tabPage2
             // 
@@ -420,15 +421,17 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1375, 587);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Изменить/Удалить";
+            this.tabPage2.Text = "Просмотр";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 33);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1359, 546);
+            this.dataGridView1.Size = new System.Drawing.Size(1359, 541);
             this.dataGridView1.TabIndex = 2;
             // 
             // label2
@@ -451,7 +454,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 0;
-            this.comboBox2.SelectionChangeCommitted += new System.EventHandler(this.comboBox2_SelectionChangeCommitted);
             // 
             // testDBDataSet
             // 
@@ -471,6 +473,17 @@
             // 
             this.testDBDataSetBindingSource.DataSource = this.testDBDataSet;
             this.testDBDataSetBindingSource.Position = 0;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(1035, 131);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(278, 69);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Изменить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ActionsForm
             // 
@@ -536,5 +549,6 @@
         public System.Windows.Forms.ComboBox comboBox2;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,15 +19,8 @@ namespace testProject
         }
 
         public string tableName;
-        //cash assets
-        private string assetNameM, bankName, dimM;
-        private int accountNumber, summ;
-        //not-cash assets
-        private string assetNameNM, dimNM, description;
-        private int initBV, resBV, predictivePrice, invNumber;
-        private DateTime productionDate;
-
-
+        public string conStr;
+        private OleDbConnection myCon2;
 
         public void initLines(int Num)
         {
@@ -64,33 +58,67 @@ namespace testProject
             }
         }
 
+        private void insQ(string col,string Value)
+        {
+            string query = "INSERT INTO " + tableName + col + " VALUES (" + Value+")";
+            OleDbCommand command = new OleDbCommand(query,myCon2);
+            command.ExecuteNonQuery();
+        }
+        public void updQ(string id,string Value)
+        {
+            string query = "UPDATE "+tableName+" SET "+Value + " WHERE id="+id;
+            OleDbCommand command = new OleDbCommand(query, myCon2);
+            command.ExecuteNonQuery();
+        }
         private void ActionsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-        }
 
         private void ActionsForm_Load(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
             // TODO: данная строка кода позволяет загрузить данные в таблицу "testDBDataSet.Денежные". При необходимости она может быть перемещена или удалена.
             this.денежныеTableAdapter.Fill(this.testDBDataSet.Денежные);
-
-            textBox1.Text = tableName;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string valQuery="", col="";
+            if (tableName == "Денежные активы")
+            {
+                col = "(Наименование актива, Наименование банка, Номер счета, Общая сумма, Измерение)";
+                valQuery = textBox1.Text + ", "+ textBox2.Text + ", " + textBox3.Text + ", " + textBox4.Text + ", " + textBox5.Text;
+            }    
+            if (tableName == "Неденежные активы")
+            {
+                col = "(Наименование, Начальная балансовая стоимость, Остаточная балансовая стоимость, Оценочная стоимость, Измерение, Инвентарный номер, Дата производства, Краткое Описание)";
+                valQuery = textBox6.Text + ", " + textBox7.Text + ", " + textBox8.Text + ", " + textBox9.Text + ", " + textBox10.Text + ", " + textBox11.Text + ", " + maskedTextBox1.Text + ", " + textBox14.Text;
+            }
 
+            myCon2 = new OleDbConnection(conStr);
+            myCon2.Open();
+            insQ(col,valQuery);
+            myCon2.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string valQuery = "";
+            string n = dataGridView1.CurrentRow.ToString();
+            if (tableName == "Денежные активы")
+            {
+                valQuery = "Наименование актива=" + textBox1.Text + ", Наименование банка=" + textBox2.Text + ", Номер счета=" + textBox3.Text + ", Общая сумма=" + textBox4.Text + ", Измерение=" + textBox5.Text;
+            }
+            if (tableName == "Неденежные активы")
+            {
+                valQuery = "Наименование="+textBox6.Text + ", Начальная балансовая стоимость=" + textBox7.Text + ", Остаточная балансовая стоимость=" + textBox8.Text + ", Оценочная стоимость=" + textBox9.Text + ", Измерение=" + textBox10.Text + ", Инвентарный номер=" + textBox11.Text + ", Дата производства=" + maskedTextBox1.Text + ", Краткое Описание=" + textBox14.Text;
+            }
+            myCon2 = new OleDbConnection(conStr);
+            myCon2.Open();
+            updQ(n, valQuery);
+            myCon2.Close();
         }
     }
 }
