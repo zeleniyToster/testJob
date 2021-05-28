@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
@@ -68,7 +69,8 @@
             this.денежныеBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.денежныеTableAdapter = new testProject.testDBDataSetTableAdapters.ДенежныеTableAdapter();
             this.testDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.неденежныеBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.неденежныеTableAdapter = new testProject.testDBDataSetTableAdapters.НеденежныеTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.денежныеBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.неденежныеBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -128,6 +131,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Действие";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(1035, 131);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(278, 69);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Изменить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // maskedTextBox1
             // 
@@ -474,16 +488,14 @@
             this.testDBDataSetBindingSource.DataSource = this.testDBDataSet;
             this.testDBDataSetBindingSource.Position = 0;
             // 
-            // button2
+            // неденежныеBindingSource
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(1035, 131);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(278, 69);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.неденежныеBindingSource.DataMember = "Неденежные";
+            this.неденежныеBindingSource.DataSource = this.testDBDataSetBindingSource;
+            // 
+            // неденежныеTableAdapter
+            // 
+            this.неденежныеTableAdapter.ClearBeforeFill = true;
             // 
             // ActionsForm
             // 
@@ -504,6 +516,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.денежныеBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.неденежныеBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,5 +563,7 @@
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource неденежныеBindingSource;
+        private testDBDataSetTableAdapters.НеденежныеTableAdapter неденежныеTableAdapter;
     }
 }

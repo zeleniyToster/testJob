@@ -98,6 +98,8 @@ namespace testProject
         }
         private void ActionsForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "testDBDataSet.Неденежные". При необходимости она может быть перемещена или удалена.
+            this.неденежныеTableAdapter.Fill(this.testDBDataSet.Неденежные);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "testDBDataSet.Денежные". При необходимости она может быть перемещена или удалена.
             this.денежныеTableAdapter.Fill(this.testDBDataSet.Денежные);
             
@@ -106,41 +108,51 @@ namespace testProject
         private void button1_Click(object sender, EventArgs e)
         {
             string valQuery="", col="";
+            myCon2 = new OleDbConnection(conStrx);
+            myCon2.Open();
             if (tableName == "Денежные")
             {
                 col = " ([Наименование актива], [Наименование банка], [Номер счета], [Общая сумма], [Измерение])";
                 valQuery ="'"+ textBox1.Text + "', '"+ textBox2.Text + "', " + int.Parse(textBox3.Text) + ", " + int.Parse(textBox4.Text) + ", '" + textBox5.Text+"'";
+                insQ(col, valQuery);
+                testDBDataSet.Денежные.Clear();
+                dataGridView1.DataSource = this.testDBDataSet.Денежные;
+                this.денежныеTableAdapter.Fill(this.testDBDataSet.Денежные);
+
             }    
             if (tableName == "Неденежные")
             {
                 col = "([Наименование], [Начальная балансовая стоимость], [Остаточная балансовая стоимость], [Оценочная стоимость], [Измерение], [Инвентарный номер], [Дата производства], [Краткое Описание])";
                 valQuery = "'"+textBox6.Text + "', " + textBox7.Text + ", " + textBox8.Text + ", " + textBox9.Text + ", '" + textBox10.Text + "', " + textBox11.Text + ", '" + maskedTextBox1.Text + "', '" + textBox14.Text+"'";
+                insQ(col, valQuery);
+                testDBDataSet.Неденежные.Clear();
+                dataGridView1.DataSource = this.testDBDataSet.Неденежные;
+                this.неденежныеTableAdapter.Fill(this.testDBDataSet.Неденежные);
             }
-            
-
-            myCon2 = new OleDbConnection(conStrx);
-            myCon2.Open();
-            insQ(col,valQuery);
             myCon2.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string valQuery = "";
-            //int n = dataGridView1.CurrentRow.Index + 1;
-            //List<string> updData = new List<string>();
-            //initUpd()
+            myCon2 = new OleDbConnection(conStrx);
+            myCon2.Open();
             if (tableName == "Денежные")
             {
                 valQuery = "[Наименование актива]='" + textBox1.Text + "', [Наименование банка]='" + textBox2.Text + "', [Номер счета]=" + textBox3.Text + ", [Общая сумма]=" + textBox4.Text + ", [Измерение]='" + textBox5.Text+"'";
+                updQ(int.Parse(updData[0]), valQuery);
+                dataGridView1.DataSource = testDBDataSet.Денежные;
+                денежныеTableAdapter.Fill(testDBDataSet.Денежные);
             }
             if (tableName == "Неденежные")
             {
                 valQuery = "[Наименование]='"+textBox6.Text + "', [Начальная балансовая стоимость]=" + textBox7.Text + ", [Остаточная балансовая стоимость]=" + textBox8.Text + ", [Оценочная стоимость]=" + textBox9.Text + ", [Измерение]='" + textBox10.Text + "', [Инвентарный номер]=" + textBox11.Text + ", [Дата производства]='" + maskedTextBox1.Text + "', [Краткое Описание]='" + textBox14.Text+"'";
+                updQ(int.Parse(updData[0]), valQuery);
+                dataGridView1.DataSource = testDBDataSet.Неденежные;
+                неденежныеTableAdapter.Fill(testDBDataSet.Неденежные);
             }
-            myCon2 = new OleDbConnection(conStrx);
-            myCon2.Open();
-            updQ(int.Parse(updData[0]), valQuery);
+            
+            
             myCon2.Close();
         }
     }

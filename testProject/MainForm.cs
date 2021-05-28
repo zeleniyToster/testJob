@@ -72,18 +72,30 @@ namespace testProject
                 int n = dataGridView1.CurrentRow.Index+1;
                 tableName = "Денежные";
                 rowNumber = n;
-                
+                //testDBDataSet.Clear();
+                testDBDataSet.Денежные.Clear();
+                delQ(rowNumber, tableName);
+                dataGridView1.DataSource = this.testDBDataSet.Денежные;
+                денежныеTableAdapter.Fill(testDBDataSet.Денежные);
+
             }
             if (tabControl1.SelectedTab == tabPage2)
             {
-                int n = dataGridView1.CurrentRow.Index;
+                int n = dataGridView2.CurrentRow.Index+1;
                 tableName = "Неденежные";
                 rowNumber = n;
+                delQ(rowNumber, tableName);
+                testDBDataSet.Неденежные.Clear();
+                dataGridView2.DataSource = this.testDBDataSet.Неденежные;
+                неденежныеTableAdapter.Fill(testDBDataSet.Неденежные);
 
             }
-            delQ(rowNumber, tableName);
+            //this.денежныеTableAdapter.Fill(this.testDBDataSet.Денежные);
+            //this.неденежныеTableAdapter.Fill(this.testDBDataSet.Неденежные);
+
+
             myConection.Close();
-            dataGridView1.Update();
+            
         }
 
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)

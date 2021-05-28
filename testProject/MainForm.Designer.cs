@@ -32,12 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.измерениеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.наименованиеАктиваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.наименованиеБанкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.номерСчетаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.общаяСуммаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.денежныеBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testDBDataSet = new testProject.testDBDataSet();
@@ -59,6 +53,12 @@
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.наименованиеАктиваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.наименованиеБанкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.номерСчетаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.общаяСуммаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.измерениеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,11 +102,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.измерениеDataGridViewTextBoxColumn,
             this.наименованиеАктиваDataGridViewTextBoxColumn,
             this.наименованиеБанкаDataGridViewTextBoxColumn,
             this.номерСчетаDataGridViewTextBoxColumn,
-            this.общаяСуммаDataGridViewTextBoxColumn});
+            this.общаяСуммаDataGridViewTextBoxColumn,
+            this.измерениеDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.денежныеBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -114,54 +114,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1489, 517);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // измерениеDataGridViewTextBoxColumn
-            // 
-            this.измерениеDataGridViewTextBoxColumn.DataPropertyName = "Измерение";
-            this.измерениеDataGridViewTextBoxColumn.HeaderText = "Измерение";
-            this.измерениеDataGridViewTextBoxColumn.Name = "измерениеDataGridViewTextBoxColumn";
-            this.измерениеDataGridViewTextBoxColumn.ReadOnly = true;
-            this.измерениеDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // наименованиеАктиваDataGridViewTextBoxColumn
-            // 
-            this.наименованиеАктиваDataGridViewTextBoxColumn.DataPropertyName = "Наименование актива";
-            this.наименованиеАктиваDataGridViewTextBoxColumn.HeaderText = "Наименование актива";
-            this.наименованиеАктиваDataGridViewTextBoxColumn.Name = "наименованиеАктиваDataGridViewTextBoxColumn";
-            this.наименованиеАктиваDataGridViewTextBoxColumn.ReadOnly = true;
-            this.наименованиеАктиваDataGridViewTextBoxColumn.Width = 133;
-            // 
-            // наименованиеБанкаDataGridViewTextBoxColumn
-            // 
-            this.наименованиеБанкаDataGridViewTextBoxColumn.DataPropertyName = "Наименование банка";
-            this.наименованиеБанкаDataGridViewTextBoxColumn.HeaderText = "Наименование банка";
-            this.наименованиеБанкаDataGridViewTextBoxColumn.Name = "наименованиеБанкаDataGridViewTextBoxColumn";
-            this.наименованиеБанкаDataGridViewTextBoxColumn.ReadOnly = true;
-            this.наименованиеБанкаDataGridViewTextBoxColumn.Width = 129;
-            // 
-            // номерСчетаDataGridViewTextBoxColumn
-            // 
-            this.номерСчетаDataGridViewTextBoxColumn.DataPropertyName = "Номер счета";
-            this.номерСчетаDataGridViewTextBoxColumn.HeaderText = "Номер счета";
-            this.номерСчетаDataGridViewTextBoxColumn.Name = "номерСчетаDataGridViewTextBoxColumn";
-            this.номерСчетаDataGridViewTextBoxColumn.ReadOnly = true;
-            this.номерСчетаDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // общаяСуммаDataGridViewTextBoxColumn
-            // 
-            this.общаяСуммаDataGridViewTextBoxColumn.DataPropertyName = "Общая сумма";
-            this.общаяСуммаDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
-            this.общаяСуммаDataGridViewTextBoxColumn.Name = "общаяСуммаDataGridViewTextBoxColumn";
-            this.общаяСуммаDataGridViewTextBoxColumn.ReadOnly = true;
-            this.общаяСуммаDataGridViewTextBoxColumn.Width = 95;
             // 
             // денежныеBindingSource
             // 
@@ -341,6 +293,54 @@
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // наименованиеАктиваDataGridViewTextBoxColumn
+            // 
+            this.наименованиеАктиваDataGridViewTextBoxColumn.DataPropertyName = "Наименование актива";
+            this.наименованиеАктиваDataGridViewTextBoxColumn.HeaderText = "Наименование актива";
+            this.наименованиеАктиваDataGridViewTextBoxColumn.Name = "наименованиеАктиваDataGridViewTextBoxColumn";
+            this.наименованиеАктиваDataGridViewTextBoxColumn.ReadOnly = true;
+            this.наименованиеАктиваDataGridViewTextBoxColumn.Width = 133;
+            // 
+            // наименованиеБанкаDataGridViewTextBoxColumn
+            // 
+            this.наименованиеБанкаDataGridViewTextBoxColumn.DataPropertyName = "Наименование банка";
+            this.наименованиеБанкаDataGridViewTextBoxColumn.HeaderText = "Наименование банка";
+            this.наименованиеБанкаDataGridViewTextBoxColumn.Name = "наименованиеБанкаDataGridViewTextBoxColumn";
+            this.наименованиеБанкаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.наименованиеБанкаDataGridViewTextBoxColumn.Width = 129;
+            // 
+            // номерСчетаDataGridViewTextBoxColumn
+            // 
+            this.номерСчетаDataGridViewTextBoxColumn.DataPropertyName = "Номер счета";
+            this.номерСчетаDataGridViewTextBoxColumn.HeaderText = "Номер счета";
+            this.номерСчетаDataGridViewTextBoxColumn.Name = "номерСчетаDataGridViewTextBoxColumn";
+            this.номерСчетаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.номерСчетаDataGridViewTextBoxColumn.Width = 89;
+            // 
+            // общаяСуммаDataGridViewTextBoxColumn
+            // 
+            this.общаяСуммаDataGridViewTextBoxColumn.DataPropertyName = "Общая сумма";
+            this.общаяСуммаDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
+            this.общаяСуммаDataGridViewTextBoxColumn.Name = "общаяСуммаDataGridViewTextBoxColumn";
+            this.общаяСуммаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.общаяСуммаDataGridViewTextBoxColumn.Width = 95;
+            // 
+            // измерениеDataGridViewTextBoxColumn
+            // 
+            this.измерениеDataGridViewTextBoxColumn.DataPropertyName = "Измерение";
+            this.измерениеDataGridViewTextBoxColumn.HeaderText = "Измерение";
+            this.измерениеDataGridViewTextBoxColumn.Name = "измерениеDataGridViewTextBoxColumn";
+            this.измерениеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.измерениеDataGridViewTextBoxColumn.Width = 90;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,8 +377,6 @@
         private System.Windows.Forms.BindingSource testDBDataSetBindingSource;
         private testDBDataSet testDBDataSet;
         private testDBDataSetTableAdapters.ДенежныеTableAdapter денежныеTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn измерениеDataGridViewTextBoxColumn;
         private testDBDataSetTableAdapters.НеденежныеTableAdapter неденежныеTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn;
@@ -394,14 +392,16 @@
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеАктиваDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеБанкаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn номерСчетаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn общаяСуммаDataGridViewTextBoxColumn;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.DataGridView dataGridView2;
         public System.Windows.Forms.BindingSource денежныеBindingSource;
         public System.Windows.Forms.BindingSource неденежныеBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеАктиваDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеБанкаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn номерСчетаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn общаяСуммаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn измерениеDataGridViewTextBoxColumn;
     }
 }
 
